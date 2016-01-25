@@ -1,0 +1,21 @@
+all:
+    type: deploy
+    script:
+    - whoami
+    - pwd
+    - ls
+    - cat .gitlab-ci.yml
+sandbox:
+    type: deploy
+    script:
+    - rm -rf /srv/loopback-backend/sandbox/*
+    - cp -r * /srv/loopback-backend/sandbox/
+    - cd /srv/loopback-backend/sandbox/server/
+    - sed -i.bak 's/\"port\"\(.\) 3000,/\"port\"\1 7001,/' config.json
+    - rm config.json.bak
+    - cd ..
+    - npm cache clean
+    - npm install
+    - npm install loopback-connector-postgresql --save
+    only:
+    - Sandbox

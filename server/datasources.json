@@ -2,5 +2,15 @@
   "db": {
     "name": "db",
     "connector": "memory"
+  },
+  "mydatasource": {
+    "host": "/var/run/postgresql/",
+    "port": "5432",
+    "database": "sandbox",
+    "username": "sandbox",
+    "password": "1234",
+    "name": "mydatasource",
+    "debug": true,
+    "connector": "postgresql"
   }
 }
