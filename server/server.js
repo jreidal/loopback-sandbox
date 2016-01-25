@@ -27,6 +27,8 @@ app.use(loopback.cookieParser('SecretCookieKey'));
 app.use(loopback.token({model: app.models.AccessToken}));
 
 app.use(function setCurrentUser(req, res, next) {
+  console.log("Cookies?\n", req.signedCookies)
+
   if (!req.accessToken) {
     return next();
   }
