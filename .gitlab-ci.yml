@@ -17,5 +17,7 @@ sandbox:
     - npm cache clean
     - npm install
     - npm install loopback-connector-postgresql --save
+    - npm install bluebird
+    - npm install body-parser
     only:
     - Sandbox
